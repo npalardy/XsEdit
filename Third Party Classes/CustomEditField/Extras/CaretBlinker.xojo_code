@@ -42,8 +42,13 @@ Inherits timer
 			Name="Index"
 			Visible=true
 			Group="ID"
-			Type="Integer"
-			EditorType="Integer"
+			InheritedFrom="timer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InheritedFrom="timer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Mode"
@@ -52,6 +57,7 @@ Inherits timer
 			InitialValue="2"
 			Type="Integer"
 			EditorType="Enum"
+			InheritedFrom="timer"
 			#tag EnumValues
 				"0 - Off"
 				"1 - Single"
@@ -62,8 +68,7 @@ Inherits timer
 			Name="Name"
 			Visible=true
 			Group="ID"
-			Type="String"
-			EditorType="String"
+			InheritedFrom="timer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Period"
@@ -71,13 +76,19 @@ Inherits timer
 			Group="Behavior"
 			InitialValue="1000"
 			Type="Integer"
+			InheritedFrom="timer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
-			Type="String"
-			EditorType="String"
+			InheritedFrom="timer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InheritedFrom="timer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

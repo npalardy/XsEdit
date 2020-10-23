@@ -27,14 +27,11 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
    Visible         =   True
    Width           =   600
    Begin XsEditCustomEditField fldCode
-      AcceptFocus     =   False
-      AcceptTabs      =   False
       AutoCloseBrackets=   False
       AutocompleteAppliesStandardCase=   True
       AutoDeactivate  =   True
       AutoIndentNewLines=   True
       BackColor       =   &cFFFFFF00
-      Backdrop        =   0
       Border          =   True
       BorderColor     =   &c88888800
       BracketHighlightColor=   &cFFFF0000
@@ -48,12 +45,10 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       DisplayInvisibleCharacters=   False
       DisplayLineNumbers=   True
       DisplayRightMarginMarker=   False
-      DoubleBuffer    =   False
       EnableAutocomplete=   True
       Enabled         =   True
       EnableLineFoldings=   False
       enableLineFoldingSetting=   False
-      EraseBackground =   True
       GutterBackgroundColor=   &cEEEEEE00
       GutterSeparationLineColor=   &c88888800
       GutterWidth     =   0
@@ -95,14 +90,12 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       Text            =   ""
       TextColor       =   &c00000000
       TextFont        =   "System"
-      TextHeight      =   0
+      TextHeight      =   0.0
       TextLength      =   0
       TextSelectionColor=   &c00000000
       TextSize        =   0
       ThickInsertionPoint=   True
-      Top             =   0
-      Transparent     =   True
-      UseFocusRing    =   True
+      Top             =   -5
       Visible         =   True
       Width           =   585
    End
@@ -130,6 +123,7 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   0
+      Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   15
@@ -158,6 +152,7 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   385
+      Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   585
@@ -172,16 +167,15 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       Visible         =   True
    End
    Begin XojoScript XS
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
       Scope           =   2
       Source          =   ""
+      State           =   "0"
       TabPanelIndex   =   0
    End
    Begin IPCSocket IDESocket
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -190,7 +184,6 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       TabPanelIndex   =   0
    End
    Begin Timer tmrSetAutocompleteScript
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -200,7 +193,6 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       TabPanelIndex   =   0
    End
    Begin Timer tmrSetContentsChanged
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -210,7 +202,6 @@ Begin SearchReceiverWindowBase WndEditor Implements PreferenceWatcher
       TabPanelIndex   =   0
    End
    Begin Timer tmrCheckForXojoIDE
-      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
@@ -660,7 +651,7 @@ End
 
 	#tag MenuHandler
 		Function ScriptRunInIDE() As Boolean Handles ScriptRunInIDE.Action
-			self.ScriptRunInIDE
+			Self.ScriptRunInIDE
 			
 			Return True
 			
@@ -914,10 +905,10 @@ End
 		    
 		    #pragma BreakOnExceptions false
 		    try
-		      if MyDocument is nil then
+		      If myDocumentFile Is Nil Then
 		        f = new FolderItem( path, FolderItem.PathTypeNative )
 		      else
-		        f = GetRelativeFolderItem_MTC( path, MyDocument.Parent )
+		        f = GetRelativeFolderItem_MTC( path, myDocumentFile.Parent )
 		      end if
 		    catch err as UnsupportedFormatException
 		      f = nil
@@ -1157,7 +1148,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Function Save() As Boolean
-		  if MyDocument is nil then
+		  If myDocumentFile Is Nil Then
 		    return SaveAs()
 		  end if
 		  
@@ -1197,7 +1188,7 @@ End
 		    
 		  end if
 		  
-		  MyDocument.TextContents_MTC = src
+		  myDocumentFile.TextContents_MTC = src
 		  ContentsChanged = false
 		  fldCode.ClearDirtyLines
 		  
@@ -1505,7 +1496,7 @@ End
 		  fldCode.TabWidth = 2
 		  
 		  fldCode.Border = false
-		  fldCode.UseFocusRing  = false
+		  // fldCode.UseFocusRing  = False
 		  
 		  fldCode.DisplayDirtyLines = true
 		  fldCode.EnableLineFoldings = true
@@ -1541,10 +1532,10 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub SetTitle()
-		  if MyDocument is nil then
+		  If myDocumentFile Is Nil Then
 		    self.Title = "Untitled"
 		  else
-		    self.Title = MyDocument.Name
+		    Self.Title = myDocumentFile.Name
 		  end if
 		End Sub
 	#tag EndMethod
@@ -1611,6 +1602,10 @@ End
 		Private LineNumberAtLastSetAutocomplete As Integer
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private MyDocumentAlias As FolderItemAlias
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -1622,12 +1617,8 @@ End
 			  
 			End Get
 		#tag EndGetter
-		MyDocument As FolderItem
+		myDocumentFile As FolderItem
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h21
-		Private MyDocumentAlias As FolderItemAlias
-	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private ResumeSetAutocompleteAtLine As Integer = 0
@@ -1764,6 +1755,37 @@ End
 		  if line <> LineNumberAtLastSetAutocomplete then
 		    SetAutocompleteWords
 		  end if
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  Me.AcceptFileDrop( DocumentTypes.Text )
+		  me.AcceptFileDrop( DocumentTypes.XojoScript )
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub DropObject(obj As DragItem, action As Integer)
+		  
+		  If obj.FolderItemAvailable = False Then
+		    Return
+		  End If
+		  
+		  Try
+		    Dim f As folderitem = obj.FolderItem
+		    
+		    Dim tis As TextInputStream = TextInputStream.Open( f )
+		    
+		    Me.Text = tis.ReadAll
+		    
+		    tis = Nil
+		    f = Nil
+		    
+		  Catch noe As NilObjectException
+		    Break
+		  Catch iox As IOException
+		    Break
+		  End Try
 		  
 		End Sub
 	#tag EndEvent

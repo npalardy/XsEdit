@@ -105,24 +105,45 @@ Inherits DataRange
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EndLine"
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="EndOffset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
-			Type="Integer"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
+			InheritedFrom="Object"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="length"
+			Group="Behavior"
+			InitialValue="0"
 			Type="Integer"
+			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LosesFocus"
@@ -134,7 +155,14 @@ Inherits DataRange
 			Name="Name"
 			Visible=true
 			Group="ID"
-			Type="String"
+			InheritedFrom="Object"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="offset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Rounded"
@@ -158,14 +186,14 @@ Inherits DataRange
 			Name="Super"
 			Visible=true
 			Group="ID"
-			Type="String"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -1,37 +1,28 @@
 #tag Class
-Protected Class LinesLock
+Protected Class ModifiedLineRange
+Inherits DataRange
 	#tag Method, Flags = &h0
-		Sub Constructor(cef as CustomEditField)
-		  // acquire a lock on the LineManager
-		  
-		  dim lineMgr as LineManager = cef.private_lines
-		  
-		  if lineMgr.linesLock = nil then
-		    lineMgr.linesLock = new CriticalSection
-		  end if
-		  
-		  lineMgr.linesLock.Enter
-		  
-		  mLineMgr = lineMgr
+		Sub Constructor(offset as integer, length as integer)
+		  Super.Constructor(offset, length)
 		End Sub
 	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub Destructor()
-		  // Release the lock
-		  if mLineMgr <> nil then
-		    mLineMgr.linesLock.Leave
-		  end if
-		End Sub
-	#tag EndMethod
-
-
-	#tag Property, Flags = &h21
-		Private mLineMgr As LineManager
-	#tag EndProperty
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EndOffset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
@@ -47,10 +38,24 @@ Protected Class LinesLock
 			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="length"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			InheritedFrom="Object"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="offset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

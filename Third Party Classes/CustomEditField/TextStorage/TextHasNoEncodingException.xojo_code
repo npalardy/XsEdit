@@ -1,73 +1,64 @@
 #tag Class
-Protected Class AutocompleteOptions
-	#tag Property, Flags = &h0
-		CurrentPathComponent As string
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		LongestCommonPrefix As string
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Options() As string
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Prefix As string
-	#tag EndProperty
+Protected Class TextHasNoEncodingException
+Inherits RuntimeException
+	#tag Note, Name = Documentation
+		This exception is raised if the provided text has a nil encoding, which is not compatible with TextStorage.
+		
+		See DefineEncoding() in Xojo documentation.
+		
+	#tag EndNote
 
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="CurrentPathComponent"
+			Name="Reason"
 			Group="Behavior"
-			Type="string"
-			EditorType="MultiLineEditor"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ErrorNumber"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
-			InheritedFrom="Object"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			InheritedFrom="Object"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="LongestCommonPrefix"
+			Name="Message"
 			Group="Behavior"
-			Type="string"
+			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
-			InheritedFrom="Object"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Prefix"
-			Group="Behavior"
-			Type="string"
-			EditorType="MultiLineEditor"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
-			InheritedFrom="Object"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			InheritedFrom="Object"
+			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

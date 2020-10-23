@@ -125,18 +125,6 @@ Inherits CustomEditField
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="AcceptFocus"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AcceptTabs"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="AutoCloseBrackets"
 			Visible=true
 			Group="Behavior"
@@ -156,6 +144,7 @@ Inherits CustomEditField
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoIndentNewLines"
@@ -170,13 +159,6 @@ Inherits CustomEditField
 			Group="Appearance"
 			InitialValue="&cffffff"
 			Type="color"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Backdrop"
-			Visible=true
-			Group="Appearance"
-			Type="Picture"
-			EditorType="Picture"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Border"
@@ -267,11 +249,6 @@ Inherits CustomEditField
 			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DoubleBuffer"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="EnableAutocomplete"
 			Visible=true
 			Group="Behavior"
@@ -284,6 +261,7 @@ Inherits CustomEditField
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="EnableLineFoldings"
@@ -295,13 +273,6 @@ Inherits CustomEditField
 		#tag ViewProperty
 			Name="enableLineFoldingSetting"
 			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EraseBackground"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -331,6 +302,7 @@ Inherits CustomEditField
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
+			EditorType="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HelpTag"
@@ -407,6 +379,7 @@ Inherits CustomEditField
 			Visible=true
 			Group="Position"
 			Type="Integer"
+			EditorType="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="leftMarginOffset"
@@ -442,24 +415,28 @@ Inherits CustomEditField
 			Visible=true
 			Group="Position"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockLeft"
 			Visible=true
 			Group="Position"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockRight"
 			Visible=true
 			Group="Position"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockTop"
 			Visible=true
 			Group="Position"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MaxVisibleLines"
@@ -538,12 +515,14 @@ Inherits CustomEditField
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabPanelIndex"
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabStop"
@@ -551,6 +530,7 @@ Inherits CustomEditField
 			Group="Position"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabWidth"
@@ -584,7 +564,7 @@ Inherits CustomEditField
 			Name="TextHeight"
 			Group="Behavior"
 			InitialValue="0"
-			Type="Integer"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextLength"
@@ -618,21 +598,7 @@ Inherits CustomEditField
 			Visible=true
 			Group="Position"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Transparent"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
-			Type="Boolean"
-			EditorType="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UseFocusRing"
-			Visible=true
-			Group="Appearance"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
@@ -640,6 +606,7 @@ Inherits CustomEditField
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
@@ -647,6 +614,7 @@ Inherits CustomEditField
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
+			EditorType="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

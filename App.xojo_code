@@ -68,13 +68,13 @@ Inherits Application
 		    dim wnd as Window = Window( i )
 		    if wnd IsA WndEditor then
 		      dim maybe as WndEditor = WndEditor( wnd )
-		      if editor is nil and maybe.MyDocument is nil and not maybe.ContentsChanged then
+		      If editor Is Nil And maybe.myDocumentFile Is Nil And Not maybe.ContentsChanged Then
 		        editor = maybe
 		        //
 		        // But keep going to see if the document is open elsewhere
 		        //
 		        
-		      elseif maybe.MyDocument IsA FolderItem and maybe.MyDocument.NativePath = item.NativePath then
+		      elseif maybe.myDocumentFile IsA FolderItem and maybe.myDocumentFile.NativePath = item.NativePath then
 		        //
 		        // It's already open
 		        //
@@ -114,9 +114,9 @@ Inherits Application
 
 	#tag MenuHandler
 		Function FileOpen() As Boolean Handles FileOpen.Action
-			dim dlg as new OpenDialog
-			dlg.PromptText = "Select a XojoScript document:"
-			dlg.Filter = DocumentTypes.XojoScript
+			Dim dlg As New OpenDialog
+			dlg.PromptText = "Select a XojoScript or Text document:"
+			dlg.Filter = DocumentTypes.All
 			
 			dim f as FolderItem = dlg.ShowModal
 			if f IsA FolderItem then

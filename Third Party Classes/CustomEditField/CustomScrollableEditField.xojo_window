@@ -6,6 +6,7 @@ Begin ContainerControl CustomScrollableEditField
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    Compatibility   =   ""
+   DoubleBuffer    =   False
    Enabled         =   True
    EraseBackground =   True
    HasBackColor    =   False
@@ -26,14 +27,14 @@ Begin ContainerControl CustomScrollableEditField
    Visible         =   True
    Width           =   208
    Begin CustomEditField contentField
-      AcceptFocus     =   False
-      AcceptTabs      =   False
+      AcceptFocus     =   "False"
+      AcceptTabs      =   "False"
       AutoCloseBrackets=   False
       AutocompleteAppliesStandardCase=   True
       AutoDeactivate  =   True
       AutoIndentNewLines=   True
       BackColor       =   &cFFFFFF00
-      Backdrop        =   0
+      Backdrop        =   "0"
       Border          =   True
       BorderColor     =   &c88888800
       BracketHighlightColor=   &cFFFF0000
@@ -47,12 +48,12 @@ Begin ContainerControl CustomScrollableEditField
       DisplayInvisibleCharacters=   False
       DisplayLineNumbers=   True
       DisplayRightMarginMarker=   False
-      DoubleBuffer    =   False
+      DoubleBuffer    =   "False"
       EnableAutocomplete=   True
       Enabled         =   True
       EnableLineFoldings=   False
       enableLineFoldingSetting=   False
-      EraseBackground =   False
+      EraseBackground =   "False"
       GutterBackgroundColor=   &cEEEEEE00
       GutterSeparationLineColor=   &c88888800
       GutterWidth     =   0
@@ -94,14 +95,14 @@ Begin ContainerControl CustomScrollableEditField
       Text            =   ""
       TextColor       =   &c00000000
       TextFont        =   "System"
-      TextHeight      =   0
+      TextHeight      =   0.0
       TextLength      =   0
       TextSelectionColor=   &c00000000
       TextSize        =   0
       ThickInsertionPoint=   True
       Top             =   0
-      Transparent     =   True
-      UseFocusRing    =   False
+      Transparent     =   "True"
+      UseFocusRing    =   "False"
       Visible         =   True
       Width           =   192
    End
@@ -129,7 +130,7 @@ Begin ContainerControl CustomScrollableEditField
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   0
-      Transparent     =   "True"
+      Transparent     =   True
       Value           =   0
       Visible         =   True
       Width           =   16
@@ -158,7 +159,7 @@ Begin ContainerControl CustomScrollableEditField
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   102
-      Transparent     =   "True"
+      Transparent     =   True
       Value           =   0
       Visible         =   True
       Width           =   192
@@ -510,8 +511,6 @@ End
 		    
 		  #elseif TargetCocoa
 		    
-		    #pragma unused ringVisible
-		    #pragma unused windowGraphics
 		    
 		  #else
 		    
@@ -785,7 +784,7 @@ End
 
 	#tag Method, Flags = &h0
 		Function VerticalOffset(line_0 as Integer, findTop as Boolean) As Integer
-		  dim x, y, charPos as Integer
+		  dim x, y, charPos as Double
 		  if line_0 >= 0 then
 		    charPos = contentField.CharPosAtLineNum (line_0)
 		    if charPos < 0 then
@@ -807,7 +806,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub XYAtCharPos(charPos as integer, byref X as integer, byref Y as integer)
+		Sub XYAtCharPos(charPos as integer, byref X as Double, byref Y as Double)
 		  contentField.XYAtCharPos(CharPos, x, y)
 		End Sub
 	#tag EndMethod
@@ -1828,6 +1827,154 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="300"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="300"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="InitialParent"
+		Group="Position"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Left"
+		Visible=true
+		Group="Position"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Top"
+		Visible=true
+		Group="Position"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockLeft"
+		Visible=true
+		Group="Position"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockTop"
+		Visible=true
+		Group="Position"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockRight"
+		Visible=true
+		Group="Position"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockBottom"
+		Visible=true
+		Group="Position"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabPanelIndex"
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIndex"
+		Visible=true
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabStop"
+		Visible=true
+		Group="Position"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Visible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Enabled"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="AutoDeactivate"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HelpTag"
+		Visible=true
+		Group="Appearance"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="UseFocusRing"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasBackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Background"
+		Type="Picture"
+		EditorType="Picture"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="AcceptFocus"
 		Visible=true
 		Group="Behavior"
@@ -1844,6 +1991,29 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="EraseBackground"
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Transparent"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoubleBuffer"
+		Visible=true
+		Group="Windows Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="AutoCloseBrackets"
 		Group="Behavior"
 		Type="boolean"
@@ -1854,30 +2024,9 @@ End
 		Type="boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="AutoDeactivate"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="AutoIndentNewLines"
 		Group="Behavior"
 		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="BackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Background"
-		Type="Picture"
-		EditorType="Picture"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Border"
@@ -1938,24 +2087,9 @@ End
 		Type="boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Enabled"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="EnableLineFoldings"
 		Group="Behavior"
 		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="EraseBackground"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="GutterBackgroundColor"
@@ -1975,26 +2109,6 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Size"
-		InitialValue="300"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HelpTag"
-		Visible=true
-		Group="Appearance"
-		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="HighlightMatchingBrackets"
 		Group="Behavior"
 		Type="boolean"
@@ -2002,17 +2116,6 @@ End
 	#tag ViewProperty
 		Name="HighlightMatchingBracketsMode"
 		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="InitialParent"
-		Group="Position"
-		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Left"
-		Visible=true
-		Group="Position"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -2038,40 +2141,9 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="LockBottom"
-		Visible=true
-		Group="Position"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LockLeft"
-		Visible=true
-		Group="Position"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LockRight"
-		Visible=true
-		Group="Position"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LockTop"
-		Visible=true
-		Group="Position"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="MaxVisibleLines"
 		Group="Behavior"
 		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="RighScrollMargin"
@@ -2108,34 +2180,6 @@ End
 		Group="Behavior"
 		Type="string"
 		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Super"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabIndex"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabPanelIndex"
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabStop"
-		Visible=true
-		Group="Position"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabWidth"
@@ -2185,42 +2229,5 @@ End
 		Name="ThickInsertionPoint"
 		Group="Behavior"
 		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Top"
-		Visible=true
-		Group="Position"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Transparent"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="UseFocusRing"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Visible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Width"
-		Visible=true
-		Group="Size"
-		InitialValue="300"
-		Type="Integer"
 	#tag EndViewProperty
 #tag EndViewBehavior

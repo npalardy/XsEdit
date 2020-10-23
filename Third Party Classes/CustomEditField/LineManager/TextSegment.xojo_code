@@ -130,6 +130,20 @@ Inherits DataRange
 			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EndOffset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasBackgroundColor"
 			Group="Behavior"
 			Type="boolean"
@@ -145,7 +159,7 @@ Inherits DataRange
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
-			Type="Integer"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="italic"
@@ -158,19 +172,33 @@ Inherits DataRange
 			Visible=true
 			Group="Position"
 			InitialValue="0"
+			InheritedFrom="Object"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="length"
+			Group="Behavior"
+			InitialValue="0"
 			Type="Integer"
+			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
-			Type="String"
+			InheritedFrom="Object"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="offset"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
-			Type="String"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextColor"
@@ -183,7 +211,7 @@ Inherits DataRange
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
+			InheritedFrom="Object"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Type"
