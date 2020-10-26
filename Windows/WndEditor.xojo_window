@@ -385,6 +385,21 @@ End
 		    quit
 		  end if
 		  
+		  fldCode.LockTop = False
+		  fldcode.LockLeft = False
+		  fldcode.LockRight = False
+		  fldcode.LockBottom = False
+		  
+		  fldCode.Top = 0
+		  fldcode.Left = 0
+		  fldcode.Width = sbVertical.Left - fldcode.Left
+		  fldcode.Height = sbHorizontal.top - fldCode.Top
+		  
+		  fldCode.LockTop = True
+		  fldcode.LockLeft = True
+		  fldcode.LockRight = True
+		  fldcode.LockBottom = true
+		  
 		  fldCode.SyntaxDefinition = hd
 		  
 		  SetAutocompleteWords()
