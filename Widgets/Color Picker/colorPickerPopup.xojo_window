@@ -903,6 +903,7 @@ Begin Window colorPickerPopup
       Width           =   37
    End
    Begin Timer closeTimer
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Mode            =   0

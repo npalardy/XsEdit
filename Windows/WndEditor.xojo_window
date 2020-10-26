@@ -1106,7 +1106,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub PreferencesHaveChanged(prefs As Preferences)
-		  dim xsePrefs as XsEditPreferences = XsEditPreferences( prefs )
+		  Dim xsePrefs As XsEditPreferences = XsEditPreferences( prefs )
 		  
 		  tbToolbar.Visible = xsePrefs.ShowToolbar
 		  
@@ -1119,15 +1119,21 @@ End
 		  fldCode.DisplayInvisibleCharacters = xsePrefs.ShowInvisibles
 		  fldCode.DisplayLineNumbers = xsePrefs.ShowLineNumbers
 		  fldCode.BackColor = xsePrefs.BackgroundColor
+		  fldCode.TextColor =  xsePrefs.TextColor
+		  fldCode.GutterBackgroundColor = xsePrefs.GutterBackgroundColor
+		  fldCode.GutterSeparationLineColor = xsePrefs.GutterSeparatorColor
 		  
 		  Dim hd As HighlightDefinition = fldCode.SyntaxDefinition
-		  dim interestingPrefs as Dictionary = xsePrefs.InterestingContextPrefsDictionary
 		  
-		  for each context as HighlightContext in hd.Contexts
-		    if interestingPrefs.HasKey( context.Name ) then
-		      dim contextPref as ContextPreferences = interestingPrefs.Value( context.Name )
+		  hd.DefaultColor =  xsePrefs.TextColor
+		  
+		  Dim interestingPrefs As Dictionary = xsePrefs.InterestingContextPrefsDictionary
+		  
+		  For Each context As HighlightContext In hd.Contexts
+		    If interestingPrefs.HasKey( context.Name ) Then
+		      Dim contextPref As ContextPreferences = interestingPrefs.Value( context.Name )
 		      contextPref.CopyTo context
-		    end if
+		    End If
 		  next
 		  
 		  //
@@ -1136,7 +1142,8 @@ End
 		  
 		  fldCode.SyntaxDefinition = nil
 		  fldCode.SyntaxDefinition = hd
-		  fldCode.IgnoreRepaint = false
+		  fldCode.IgnoreRepaint = False
+		  fldCode.ReHighlight
 		  fldCode.Redraw( true )
 		  
 		End Sub

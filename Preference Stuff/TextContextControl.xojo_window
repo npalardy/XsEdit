@@ -6,6 +6,7 @@ Begin ContainerControl TextContextControl
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    Compatibility   =   ""
+   DoubleBuffer    =   False
    Enabled         =   True
    EraseBackground =   True
    HasBackColor    =   False
@@ -47,6 +48,7 @@ Begin ContainerControl TextContextControl
       Selectable      =   False
       TabIndex        =   0
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Context:"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -59,7 +61,7 @@ Begin ContainerControl TextContextControl
       Visible         =   True
       Width           =   88
    End
-   Begin ColorPicker_MTC cpForeground
+   Begin ColorPickerButton cpForeground
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
@@ -67,9 +69,10 @@ Begin ContainerControl TextContextControl
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   32
+      Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
+      InitialColorShown=   &c00000000
       InitialParent   =   ""
       Left            =   100
       LockBottom      =   False
@@ -77,17 +80,15 @@ Begin ContainerControl TextContextControl
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      PromptText      =   "Select a color:"
       Scope           =   2
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   0
+      Top             =   7
       Transparent     =   True
       UseFocusRing    =   True
-      Value           =   &c00000000
       Visible         =   True
-      Width           =   32
+      Width           =   46
    End
    Begin CheckBox cbBold
       AutoDeactivate  =   True
@@ -101,7 +102,7 @@ Begin ContainerControl TextContextControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   180
+      Left            =   200
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -116,6 +117,7 @@ Begin ContainerControl TextContextControl
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   6
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -133,7 +135,7 @@ Begin ContainerControl TextContextControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   257
+      Left            =   267
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -148,12 +150,13 @@ Begin ContainerControl TextContextControl
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   6
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
       Width           =   65
    End
-   Begin ColorPicker_MTC cpBackground
+   Begin ColorPickerButton cpBackground
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
@@ -161,27 +164,26 @@ Begin ContainerControl TextContextControl
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   32
+      Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
+      InitialColorShown=   &c00000000
       InitialParent   =   ""
-      Left            =   136
+      Left            =   149
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      PromptText      =   "Select a color:"
       Scope           =   2
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   0
+      Top             =   7
       Transparent     =   True
       UseFocusRing    =   True
-      Value           =   &c00000000
       Visible         =   True
-      Width           =   32
+      Width           =   46
    End
    Begin CheckBox cbUnderline
       AutoDeactivate  =   True
@@ -210,6 +212,7 @@ Begin ContainerControl TextContextControl
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   6
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -273,12 +276,13 @@ End
 		  cbUnderline.Value = prefs.Underline
 		  
 		  if prefs.HasBackgroundColor then
-		    cpBackground.Value = prefs.BackgroundColor
+		    cpBackground.InitialColorShown = prefs.BackgroundColor
+		    HasBackgroundColor =  true
 		  else
-		    cpBackground.Value = &cFFFFFF00
+		    cpBackground.InitialColorShown = &cFFFFFF00
 		  end
 		  
-		  cpForeground.Value = prefs.HighlightColor
+		  cpForeground.InitialColorShown = prefs.HighlightColor
 		  
 		  DefaultPreferences = defaultPrefs
 		End Sub
@@ -286,12 +290,12 @@ End
 
 	#tag Method, Flags = &h0
 		Function ToContextPreferences() As ContextPreferences
-		  dim r as ContextPreferences = DefaultPreferences.Clone
+		  Dim r As ContextPreferences = DefaultPreferences.Clone
 		  
-		  r.BackgroundColor = cpBackground.Value
+		  r.BackgroundColor = cpBackground.InitialColorShown
 		  r.Bold = cbBold.Value
 		  r.HasBackgroundColor = HasBackgroundColor
-		  r.HighlightColor = cpForeground.Value
+		  r.HighlightColor = cpForeground.InitialColorShown
 		  r.Italic = cbItalic.Value
 		  r.Underline = cbUnderline.Value
 		  
@@ -304,7 +308,7 @@ End
 		#tag Getter
 			Get
 			  if HasBackgroundColor then
-			    return cpBackground.Value
+			    return cpBackground.InitialColorShown
 			    
 			  else
 			    return kDefaultBackgroundColor
@@ -315,7 +319,7 @@ End
 		#tag EndGetter
 		#tag Setter
 			Set
-			  cpBackground.Value = value
+			  cpBackground.InitialColorShown = value
 			End Set
 		#tag EndSetter
 		Background As Color
@@ -357,12 +361,12 @@ End
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return cpForeground.Value
+			  return cpForeground.InitialColorShown
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  cpForeground.Value = value
+			  cpForeground.InitialColorShown = value
 			End Set
 		#tag EndSetter
 		Foreground As Color
@@ -416,48 +420,102 @@ End
 
 #tag Events cpForeground
 	#tag Event
-		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
-		  #pragma unused x
-		  #pragma unused y
+		Sub SelectedColor(c as color)
+		  Me.InitialColorShown = c
 		  
-		  ColorPickerConstructContextMenu( base )
-		  return true
 		  
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function SelectColorFromPopDownPalette(parentOn as Window, left as integer, bottom as integer, width as integer, byref c as color) As boolean
+		  Dim cp As New colorPickerPopup
+		  
+		  #If TargetMacOS
+		    Dim windowToParentOn As NSWindowMBS
+		    windowToParentOn = New NSWindowMBS(parentOn)
+		    
+		    windowToParentOn.addChildWindow(cp, NSWindowMBS.NSWindowAbove)
+		  #ElseIf TargetWindows
+		    // see https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setparent
+		    
+		  #EndIf
+		  
+		  cp.Left = (Left + width/2) - cp.width/2
+		  cp.top = bottom + 3
+		  
+		  cp.ShowModal
+		  
+		  If cp.DidSelectColor Then
+		    c = cp.selectedcolor
+		    Return True
+		  Else
+		    Return False
+		  End If
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
-		  return ColorPickerContextualMenuAction( me, hitItem )
-		End Function
+		Sub ColorChanged(c as Color)
+		  Me.InitialColorShown = c
+		  
+		  
+		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cpBackground
 	#tag Event
-		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
-		  #pragma unused x
-		  #pragma unused y
+		Sub SelectedColor(c as color)
+		  Me.InitialColorShown = c
 		  
-		  ColorPickerConstructContextMenu( base )
-		  return true
+		  HasBackgroundColor = True
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function SelectColorFromPopDownPalette(parentOn as Window, left as integer, bottom as integer, width as integer, byref c as color) As boolean
+		  Dim cp As New colorPickerPopup
+		  
+		  #If TargetMacOS
+		    Dim windowToParentOn As NSWindowMBS
+		    windowToParentOn = New NSWindowMBS(parentOn)
+		    
+		    windowToParentOn.addChildWindow(cp, NSWindowMBS.NSWindowAbove)
+		  #ElseIf TargetWindows
+		    // see https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setparent
+		    
+		  #EndIf
+		  
+		  cp.Left = (Left + width/2) - cp.width/2
+		  cp.top = bottom + 3
+		  
+		  cp.ShowModal
+		  
+		  If cp.DidSelectColor Then
+		    c = cp.selectedcolor
+		    Return True
+		  Else
+		    Return False
+		  End If
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
-		  return ColorPickerContextualMenuAction( me, hitItem )
-		End Function
-	#tag EndEvent
-	#tag Event
-		Sub ValueChanged()
-		  if me.Value <> kDefaultBackgroundColor then
-		    HasBackgroundColor = true
-		  else
-		    HasBackgroundColor = false
-		  end if
+		Sub ColorChanged(c as Color)
+		  Me.InitialColorShown = c
+		  
+		  HasBackgroundColor = True
 		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="DoubleBuffer"
+		Visible=true
+		Group="Windows Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="AcceptFocus"
 		Visible=true

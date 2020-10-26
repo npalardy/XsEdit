@@ -4333,7 +4333,9 @@ Implements MessageReceiver
 		Sub Redraw(forced as Boolean = false)
 		  // always redraws entire canvas
 		  
-		  if ignoreRepaint and not forced then Return
+		  If ignoreRepaint And Not forced Then 
+		    Return
+		  End If
 		  
 		  //see if caret is visible
 		  dim ScrollPosition as Integer = self.ScrollPosition
@@ -5256,7 +5258,7 @@ Implements MessageReceiver
 			Set
 			  mBackColor = value
 			  InvalidateAllLines
-			  redraw
+			  redraw(true)
 			End Set
 		#tag EndSetter
 		BackColor As color

@@ -141,6 +141,34 @@ Inherits Preferences
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Return ColorValue( kGutterBackgroundColor, &cFFFFFF )
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  ColorValue( kGutterBackgroundColor ) = value
+			End Set
+		#tag EndSetter
+		GutterBackgroundColor As color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return ColorValue( kGutterSeparatorColor, &cC0C0C0 )
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  ColorValue( kGutterSeparatorColor ) = value
+			End Set
+		#tag EndSetter
+		GutterSeparatorColor As color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  return BooleanValue( kPrefSaveWithIndents, kDefaultSaveWithIndents )
 			End Get
 		#tag EndGetter
@@ -199,6 +227,20 @@ Inherits Preferences
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return ColorValue( kPrefTextColor, &c000000 )
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  ColorValue( kPrefTextColor ) = value
+			End Set
+		#tag EndSetter
+		TextColor As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  return BooleanValue( kPrefUseActiveLineHighlight, kDefaultUseActiveLineHighlight )
 			End Get
 		#tag EndGetter
@@ -242,6 +284,12 @@ Inherits Preferences
 	#tag Constant, Name = kDefaultUseActiveLineHighlight, Type = Boolean, Dynamic = False, Default = \"True", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kGutterBackgroundColor, Type = String, Dynamic = False, Default = \"Gutter Background Color", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kGutterSeparatorColor, Type = String, Dynamic = False, Default = \"Gutter Separator Color", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPrefActiveLineHighlightColor, Type = String, Dynamic = False, Default = \"ActiveLine Highlight Color", Scope = Public
 	#tag EndConstant
 
@@ -270,6 +318,9 @@ Inherits Preferences
 	#tag EndConstant
 
 	#tag Constant, Name = kPrefShowToolbar, Type = String, Dynamic = False, Default = \"ShowToolbar", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kPrefTextColor, Type = String, Dynamic = False, Default = \"Text Color", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = kPrefUseActiveLineHighlight, Type = String, Dynamic = False, Default = \"Use Active Line Highlight", Scope = Public
@@ -361,6 +412,24 @@ Inherits Preferences
 			Name="SaveWithIndents"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BackgroundColor"
+			Group="Behavior"
+			InitialValue="&c000000"
+			Type="Color"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextColor"
+			Group="Behavior"
+			InitialValue="&c000000"
+			Type="Color"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="GutterBackgroundColor"
+			Group="Behavior"
+			InitialValue="&c000000"
+			Type="color"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

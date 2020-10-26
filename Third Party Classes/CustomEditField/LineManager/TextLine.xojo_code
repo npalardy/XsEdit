@@ -441,7 +441,7 @@ Inherits TextSegment
 		  
 		  //add any trailing text
 		  if offset<  text.len then
-		    addWord new TextSegment(offset, text.len - offset, TextSegment.TYPE_WORD, defaultColor)
+		    addWord New TextSegment(offset, Text.Len - offset, TextSegment.TYPE_WORD, defaultColor)
 		    #if DebugBuild
 		      tmp = text.Mid(offset + 1)
 		    #endif
@@ -957,7 +957,6 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="blockIndentation"
@@ -969,14 +968,12 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="String"
 			EditorType="MultiLineEditor"
-			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="delimiterLength"
@@ -989,7 +986,6 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
-			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="folded"
@@ -1001,7 +997,6 @@ Inherits TextSegment
 			Name="HasBackgroundColor"
 			Group="Behavior"
 			Type="boolean"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="icon"
@@ -1014,7 +1009,6 @@ Inherits TextSegment
 			Group="Behavior"
 			Type="string"
 			EditorType="MultiLineEditor"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="indent"
@@ -1038,19 +1032,7 @@ Inherits TextSegment
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
-			InheritedFrom="Object"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isBlockEnd"
-			Group="Behavior"
-			InitialValue="0"
-			Type="boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isBlockStart"
-			Group="Behavior"
-			InitialValue="0"
-			Type="boolean"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="isContinuedFromLine"
@@ -1069,27 +1051,25 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			InheritedFrom="Object"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="length"
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
-			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
-			InheritedFrom="Object"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NeedsIndentation"
@@ -1101,7 +1081,6 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
-			InheritedFrom="DataRange"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ScreenWidth"
@@ -1113,35 +1092,32 @@ Inherits TextSegment
 			Name="Super"
 			Visible=true
 			Group="ID"
-			InheritedFrom="Object"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextColor"
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			InheritedFrom="Object"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Type"
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="underline"
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="visible"
@@ -1154,7 +1130,6 @@ Inherits TextSegment
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
-			InheritedFrom="TextSegment"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
