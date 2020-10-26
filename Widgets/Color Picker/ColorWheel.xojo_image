@@ -1,0 +1,43 @@
+#tag MultiImage
+Image ColorWheel
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGKAAAAAAGKAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8OQ29sb3JXaGVlbC5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAABQTkdmR0tPTv////8AAAogY3UAAAAAAAAAAAAAAAAABkltYWdlcwACAEovOlVzZXJzOm5wYWxhcmR5OkRlc2t0b3A6T3BlbiBTb3VyY2UgUHJvamVjdHM6WHNFZGl0OkltYWdlczpDb2xvcldoZWVsLnBuZwAOAB4ADgBDAG8AbABvAHIAVwBoAGUAZQBsAC4AcABuAGcADwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgBIVXNlcnMvbnBhbGFyZHkvRGVza3RvcC9PcGVuIFNvdXJjZSBQcm9qZWN0cy9Yc0VkaXQvSW1hZ2VzL0NvbG9yV2hlZWwucG5nABMAAS8AABUAAgAP//8AAAAAAAAAAA==
+		FullPath = /Users/npalardy/Desktop/Open Source Projects/XsEdit/Images/ColorWheel.png
+		PartialPath = Images\ColorWheel.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 13.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGYAAAAAAGYAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8RQ29sb3JXaGVlbEAyeC5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAABQTkdmR0tPTv////8AAAogY3UAAAAAAAAAAAAAAAAABkltYWdlcwACAE0vOlVzZXJzOm5wYWxhcmR5OkRlc2t0b3A6T3BlbiBTb3VyY2UgUHJvamVjdHM6WHNFZGl0OkltYWdlczpDb2xvcldoZWVsQDJ4LnBuZwAADgAkABEAQwBvAGwAbwByAFcAaABlAGUAbABAADIAeAAuAHAAbgBnAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAS1VzZXJzL25wYWxhcmR5L0Rlc2t0b3AvT3BlbiBTb3VyY2UgUHJvamVjdHMvWHNFZGl0L0ltYWdlcy9Db2xvcldoZWVsQDJ4LnBuZwAAEwABLwAAFQACAA///wAAAAAAAAAA
+		FullPath = /Users/npalardy/Desktop/Open Source Projects/XsEdit/Images/ColorWheel@2x.png
+		PartialPath = Images\ColorWheel@2x.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 13.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 13.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 13.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

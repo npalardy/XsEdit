@@ -1118,8 +1118,9 @@ End
 		  fldCode.AutoCloseBrackets = xsePrefs.AutoCloseBrackets
 		  fldCode.DisplayInvisibleCharacters = xsePrefs.ShowInvisibles
 		  fldCode.DisplayLineNumbers = xsePrefs.ShowLineNumbers
+		  fldCode.BackColor = xsePrefs.BackgroundColor
 		  
-		  dim hd as HighlightDefinition = fldCode.SyntaxDefinition
+		  Dim hd As HighlightDefinition = fldCode.SyntaxDefinition
 		  dim interestingPrefs as Dictionary = xsePrefs.InterestingContextPrefsDictionary
 		  
 		  for each context as HighlightContext in hd.Contexts

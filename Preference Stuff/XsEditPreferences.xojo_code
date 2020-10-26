@@ -97,6 +97,20 @@ Inherits Preferences
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return ColorValue( kPrefBackgroundColor, &cFFFFFF )
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  ColorValue( kPrefBackgroundColor ) = value
+			End Set
+		#tag EndSetter
+		BackgroundColor As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  return StringValue( kPrefCodeFont, kDefaultCodeFont )
 			  
 			End Get
@@ -237,6 +251,9 @@ Inherits Preferences
 	#tag Constant, Name = kPrefAutocompleteAppliesStandardCase, Type = String, Dynamic = False, Default = \"AutocompleteAppliesStandardCase", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = kPrefBackgroundColor, Type = String, Dynamic = False, Default = \"Background Color", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kPrefCodeFont, Type = String, Dynamic = False, Default = \"CodeFont", Scope = Public
 	#tag EndConstant
 
@@ -337,6 +354,11 @@ Inherits Preferences
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="UseActiveLineHighlight"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SaveWithIndents"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

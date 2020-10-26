@@ -1688,21 +1688,21 @@ Implements MessageReceiver
 
 	#tag Method, Flags = &h21
 		Private Sub drawContents(gr as graphics, parentWindow as Window)
-		  #if not DebugBuild
-		    #pragma DisableBackgroundTasks
+		  #If Not DebugBuild
+		    #Pragma DisableBackgroundTasks
 		    
-		  #endif
+		  #EndIf
 		  
-		  #if DebugBuild and EditFieldGlobals.DebugIndentation
-		    System.DebugLog "drawContents() start, firstLineToIndent: "+str(lines.FirstLineForIndentation)
-		  #endif
+		  #If DebugBuild And EditFieldGlobals.DebugIndentation
+		    System.DebugLog "drawContents() start, firstLineToIndent: "+Str(lines.FirstLineForIndentation)
+		  #EndIf
 		  
-		  dim lock as new LinesLock(self) // makes sure we're not updating while LineHighlighter is busy
-		  #pragma unused lock
+		  Dim lock As New LinesLock(Self) // makes sure we're not updating while LineHighlighter is busy
+		  #Pragma unused lock
 		  
-		  self.updateIndentation()
+		  Self.updateIndentation
 		  
-		  if not mRedrawEverything and not mRedrawCaret then
+		  If Not mRedrawEverything And Not mRedrawCaret Then
 		    // It's probably an externally triggered refresh
 		    //
 		    // However, this assumption might not be fool-proof. What if
@@ -1720,8 +1720,8 @@ Implements MessageReceiver
 		    // are other pending redraws. Ideally, we'd learn how large the
 		    // invalidated rect is, and base our redraw (and clipping) on that.
 		    
-		    mRedrawEverything = true
-		  end
+		    mRedrawEverything = True
+		  End
 		  
 		  // We're going to implement the paint event ourselves
 		  // so that we can automatically do the double buffering
@@ -2185,7 +2185,7 @@ Implements MessageReceiver
 		    end if
 		  #endif
 		  
-		  #if DebugBuild
+		  #If DebugBuild
 		    redrawTime = Microseconds - redrawTime
 		  #endif
 		  
@@ -2774,7 +2774,7 @@ Implements MessageReceiver
 
 	#tag Method, Flags = &h1
 		Protected Function highLighterTask(createIfMissing as Boolean) As LineHighlighter
-		  if mHighlighter = nil and createIfMissing then
+		  If mHighlighter = Nil And createIfMissing Then
 		    //create Highlighter thread
 		    mHighlighter = new LineHighlighter(self, SyntaxDefinition, self.modifiedLines, TextStorage, lines)
 		    self.registerForMessage(mHighlighter)
@@ -2796,7 +2796,7 @@ Implements MessageReceiver
 
 	#tag Method, Flags = &h21
 		Private Sub HighlightNow(caller as Timer)
-		  #pragma unused caller
+		  #Pragma unused caller
 		  
 		  if mHighlighter = nil or mHighlighter.State = Thread.NotRunning then
 		    highlighterTask(true).Run

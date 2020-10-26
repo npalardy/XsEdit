@@ -9,7 +9,7 @@ Begin XsEditWindowBase WndPreferences
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   220
+   Height          =   252
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -34,6 +34,7 @@ Begin XsEditWindowBase WndPreferences
       BackColor       =   &cFFFFFF00
       Backdrop        =   0
       CancelCaption   =   "Cancel"
+      DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
       HasBackColor    =   False
@@ -51,7 +52,7 @@ Begin XsEditWindowBase WndPreferences
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   166
+      Top             =   198
       Transparent     =   True
       UseFocusRing    =   False
       Visible         =   True
@@ -79,6 +80,7 @@ Begin XsEditWindowBase WndPreferences
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Code Font:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -118,6 +120,7 @@ Begin XsEditWindowBase WndPreferences
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   19
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -145,6 +148,7 @@ Begin XsEditWindowBase WndPreferences
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Size:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -194,6 +198,7 @@ Begin XsEditWindowBase WndPreferences
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   20
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -226,6 +231,7 @@ Begin XsEditWindowBase WndPreferences
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   54
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -258,6 +264,7 @@ Begin XsEditWindowBase WndPreferences
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   79
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -285,13 +292,14 @@ Begin XsEditWindowBase WndPreferences
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Contexts:"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   111
+      Top             =   143
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -324,12 +332,13 @@ Begin XsEditWindowBase WndPreferences
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   54
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
       Width           =   155
    End
-   Begin ColorPicker_MTC cpActiveLineHighlightColor
+   Begin ColorPickerButton cpActiveLineHighlightColor
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
@@ -337,17 +346,17 @@ Begin XsEditWindowBase WndPreferences
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
-      Height          =   32
+      Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
+      InitialColorShown=   &c00000000
       InitialParent   =   ""
-      Left            =   492
+      Left            =   467
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      PromptText      =   "Select a color:"
       Scope           =   0
       TabIndex        =   22
       TabPanelIndex   =   0
@@ -355,9 +364,72 @@ Begin XsEditWindowBase WndPreferences
       Top             =   52
       Transparent     =   True
       UseFocusRing    =   True
-      Value           =   &c00000000
       Visible         =   True
-      Width           =   32
+      Width           =   66
+   End
+   Begin ColorPickerButton cpBackgroundColor
+      AcceptFocus     =   False
+      AcceptTabs      =   False
+      AutoDeactivate  =   True
+      Backdrop        =   0
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialColorShown=   &c00000000
+      InitialParent   =   ""
+      Left            =   216
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   23
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   110
+      Transparent     =   True
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   66
+   End
+   Begin Label Label2
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   42
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   24
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Background"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   111
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   162
    End
 End
 #tag EndWindow
@@ -411,8 +483,9 @@ End
 		  // Set the UseActiveLineHighlight checkbox
 		  //
 		  cbUseActiveLineHighlight.Value = App.Prefs.UseActiveLineHighlight
-		  cpActiveLineHighlightColor.Value = App.Prefs.ActiveLineHighlightColor
+		  cpActiveLineHighlightColor.InitialColorShown = App.Prefs.ActiveLineHighlightColor
 		  cpActiveLineHighlightColor.Visible = cbUseActiveLineHighlight.Value
+		  cpBackgroundColor.InitialColorShown = App.Prefs.BackgroundColor
 		  
 		  //
 		  // Contexts
@@ -452,7 +525,7 @@ End
 		  cbAutoCloseBrackets.Value = prefs.kDefaultAutoCloseBrackets
 		  cbAutocompleteAppliesStandardCase.Value = prefs.kDefaultAutocompleteAppliesStandardCase
 		  cbUseActiveLineHighlight.Value = prefs.kDefaultUseActiveLineHighlight
-		  cpActiveLineHighlightColor.Value = prefs.kDefaultActiveHighlightColor
+		  cpActiveLineHighlightColor.InitialColorShown = prefs.kDefaultActiveHighlightColor
 		  cpActiveLineHighlightColor.Visible = cbUseActiveLineHighlight.Value
 		  
 		  cboCodeFont.Text = prefs.kDefaultCodeFont
@@ -494,8 +567,8 @@ End
 		  App.Prefs.AutocompleteAppliesStandardCase = cbAutocompleteAppliesStandardCase.Value
 		  App.Prefs.AutoCloseBrackets = cbAutoCloseBrackets.Value
 		  App.Prefs.UseActiveLineHighlight = cbUseActiveLineHighlight.Value
-		  App.Prefs.ActiveLineHighlightColor = cpActiveLineHighlightColor.Value
-		  
+		  App.Prefs.ActiveLineHighlightColor = cpActiveLineHighlightColor.InitialColorShown
+		  App.Prefs.BackgroundColor = cpBackgroundColor.InitialColorShown
 		  for each cc as TextContextControl in ContextControls
 		    App.Prefs.ContextPrefValue( cc.ContextName ) = cc.ToContextPreferences
 		  next
@@ -547,25 +620,80 @@ End
 #tag EndEvents
 #tag Events cpActiveLineHighlightColor
 	#tag Event
-		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
-		  #pragma unused x
-		  #pragma unused y
+		Function SelectColorFromPopDownPalette(parentOn as Window, left as integer, bottom as integer, width as integer, byref c as color) As boolean
+		  Dim cp As New colorPickerPopup
 		  
-		  base.Append new MenuItem( "Restore Default" )
-		  return true
+		  #If TargetMacOS
+		    Dim windowToParentOn As NSWindowMBS
+		    windowToParentOn = New NSWindowMBS(parentOn)
+		    
+		    windowToParentOn.addChildWindow(cp, NSWindowMBS.NSWindowAbove)
+		  #ElseIf TargetWindows
+		    // see https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setparent
+		    
+		  #EndIf
+		  
+		  cp.Left = (Left + width/2) - cp.width/2
+		  cp.top = bottom + 3
+		  
+		  cp.ShowModal
+		  
+		  If cp.DidSelectColor Then
+		    c = cp.selectedcolor
+		    Return True
+		  Else
+		    Return False
+		  End If
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
-		  select case hitItem.Text
-		  case "Restore Default"
-		    me.Value = App.Prefs.kDefaultActiveHighlightColor
-		    return true
-		    
-		  end select
+		Sub ColorChanged(c as Color)
+		  me.InitialColorShown = c
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectedColor(c as color)
+		  me.InitialColorShown = c
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events cpBackgroundColor
+	#tag Event
+		Function SelectColorFromPopDownPalette(parentOn as Window, left as integer, bottom as integer, width as integer, byref c as color) As boolean
+		  Dim cp As New colorPickerPopup
 		  
-		  return false
+		  #If TargetMacOS
+		    Dim windowToParentOn As NSWindowMBS
+		    windowToParentOn = New NSWindowMBS(parentOn)
+		    
+		    windowToParentOn.addChildWindow(cp, NSWindowMBS.NSWindowAbove)
+		  #ElseIf TargetWindows
+		    // see https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-setparent
+		    
+		  #EndIf
+		  
+		  cp.Left = (Left + width/2) - cp.width/2
+		  cp.top = bottom + 3
+		  
+		  cp.ShowModal
+		  
+		  If cp.DidSelectColor Then
+		    c = cp.selectedcolor
+		    Return True
+		  Else
+		    Return False
+		  End If
 		End Function
+	#tag EndEvent
+	#tag Event
+		Sub ColorChanged(c as Color)
+		  me.InitialColorShown = c
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectedColor(c as color)
+		  me.InitialColorShown = c
+		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
@@ -615,7 +743,6 @@ End
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
 			"9 - Metal Window"
-			"10 - Drawer Window"
 			"11 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
