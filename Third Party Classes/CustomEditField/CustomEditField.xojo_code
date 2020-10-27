@@ -3713,27 +3713,33 @@ Implements MessageReceiver
 
 	#tag Method, Flags = &h1
 		Protected Sub PaintCaret(atPos as integer, g as graphics, gutterWidth as Integer)
-		  #if not DebugBuild
+		  #If Not DebugBuild
 		    #pragma DisableBackgroundTasks
 		    #pragma DisableBoundsChecking
 		    
 		  #endif
 		  
-		  if not hasFocus and DragSource = nil then Return
-		  if selLength > 0  and DragTextSelection = nil then Return
+		  If Not hasFocus And DragSource = Nil Then 
+		    Return
+		  End If
+		  If selLength > 0  And DragTextSelection = Nil Then 
+		    Return
+		  End If
 		  
-		  caretState = not caretState
-		  if caretState then Return
+		  caretState = Not caretState
+		  If caretState Then 
+		    Return
+		  End If
 		  
-		  dim xpos, ypos as Double
+		  Dim xpos, ypos As Double
 		  
-		  if atPos = CaretPos then
+		  If atPos = CaretPos Then
 		    XYAtCharPos(atPos, CaretLine, xpos, ypos)
-		  else
+		  Else
 		    XYAtCharPos(atPos, xpos, ypos)
-		  end if
+		  End If
 		  
-		  if xpos < gutterWidth or ypos < 0 then Return
+		  If xpos < gutterWidth Or ypos < 0 Then Return
 		  
 		  g.ForeColor = CaretColor
 		  
@@ -4361,8 +4367,12 @@ Implements MessageReceiver
 		  
 		  //see if caret is visible
 		  dim ScrollPosition as Integer = self.ScrollPosition
-		  if EnableLineFoldings then ScrollPosition = lines.getNumberOfLinesNeededToView(ScrollPosition)
-		  if (CaretLine < ScrollPosition or CaretLine > ScrollPosition + VisibleLineRange.length) then Return
+		  If EnableLineFoldings Then 
+		    ScrollPosition = lines.getNumberOfLinesNeededToView(ScrollPosition)
+		  End If
+		  If (CaretLine < ScrollPosition Or CaretLine > ScrollPosition + VisibleLineRange.length) Then 
+		    Return
+		  End If
 		  
 		  // This is a work in progress - the purpose is to avoid updating the entire
 		  // Canvas every time we update the blinking text cursor.

@@ -270,7 +270,7 @@ Begin XsEditWindowBase WndPreferences
       Visible         =   True
       Width           =   270
    End
-   Begin Label Label1
+   Begin Label lblContexts
       AutoDeactivate  =   True
       Bold            =   False
       DataField       =   ""
@@ -278,7 +278,7 @@ Begin XsEditWindowBase WndPreferences
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
-      Index           =   7
+      Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
@@ -299,7 +299,7 @@ Begin XsEditWindowBase WndPreferences
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   178
+      Top             =   161
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -693,9 +693,8 @@ End
 		  
 		  dim contextPrefs() as ContextPreferences = App.Prefs.InterestingContextPrefs
 		  
-		  const kUseLeft = 63
-		  Dim kStartTop As Integer = cpTextColor.Top + cpTextColor.Height + 12
-		  Const kTopOffset = 44
+		  Const kUseLeft = 0
+		  Dim kStartTop As Integer = lblContexts.Top + lblContexts.Height + 12
 		  
 		  For i As Integer = 0 To contextPrefs.Ubound
 		    Dim contextPref As ContextPreferences = contextPrefs( i )
@@ -704,10 +703,15 @@ End
 		    cc.ContextName = contextPref.Name
 		    cc.SetFromPrefs contextPref, New ContextPreferences( App.SyntaxDefinitionFile, contextPref.Name )
 		    
-		    cc.EmbedWithin Self, kUseLeft, kStartTop + ( kTopOffset * i )
+		    cc.EmbedWithin Self, kUseLeft, kStartTop 
+		    cc.LockLeft = True
+		    cc.LockRight = True
+		    
 		    ContextControls.Append cc
 		    
-		    self.Height = self.Height + kTopOffset
+		    Self.Height = Self.Height + cc.Height
+		    kStartTop = kStartTop + cc.Height
+		    
 		  next
 		  
 		End Sub

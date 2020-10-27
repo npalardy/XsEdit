@@ -25,7 +25,7 @@ Begin ContainerControl TextContextControl
    Transparent     =   True
    UseFocusRing    =   False
    Visible         =   True
-   Width           =   431
+   Width           =   600
    Begin Label lblContextName
       AutoDeactivate  =   True
       Bold            =   False
@@ -102,11 +102,11 @@ Begin ContainerControl TextContextControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   200
+      Left            =   349
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       Scope           =   2
       State           =   0
@@ -135,11 +135,11 @@ Begin ContainerControl TextContextControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   267
+      Left            =   416
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       Scope           =   2
       State           =   0
@@ -197,11 +197,11 @@ Begin ContainerControl TextContextControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   334
+      Left            =   483
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
+      LockLeft        =   False
+      LockRight       =   True
       LockTop         =   True
       Scope           =   2
       State           =   0
@@ -217,6 +217,39 @@ Begin ContainerControl TextContextControl
       Value           =   False
       Visible         =   True
       Width           =   97
+   End
+   Begin CheckBox cbUseBackColor
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Use backcolor"
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   207
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   2
+      State           =   0
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   6
+      Transparent     =   False
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   119
    End
 End
 #tag EndWindow
@@ -274,11 +307,11 @@ End
 		  cbBold.Value = prefs.Bold
 		  cbItalic.Value = prefs.Italic
 		  cbUnderline.Value = prefs.Underline
+		  cbUseBackColor.Value = prefs.HasBackgroundColor
 		  
 		  if prefs.HasBackgroundColor then
 		    cpBackground.InitialColorShown = prefs.BackgroundColor
-		    HasBackgroundColor =  true
-		  else
+		  Else
 		    cpBackground.InitialColorShown = &cFFFFFF00
 		  end
 		  
@@ -294,7 +327,7 @@ End
 		  
 		  r.BackgroundColor = cpBackground.InitialColorShown
 		  r.Bold = cbBold.Value
-		  r.HasBackgroundColor = HasBackgroundColor
+		  r.HasBackgroundColor = cbUseBackColor.value
 		  r.HighlightColor = cpForeground.InitialColorShown
 		  r.Italic = cbItalic.Value
 		  r.Underline = cbUnderline.Value
@@ -467,7 +500,6 @@ End
 		Sub SelectedColor(c as color)
 		  Me.InitialColorShown = c
 		  
-		  HasBackgroundColor = True
 		  
 		End Sub
 	#tag EndEvent
@@ -502,7 +534,7 @@ End
 		Sub ColorChanged(c as Color)
 		  Me.InitialColorShown = c
 		  
-		  HasBackgroundColor = True
+		  
 		  
 		End Sub
 	#tag EndEvent

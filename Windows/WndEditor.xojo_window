@@ -1120,6 +1120,7 @@ End
 		  fldCode.DisplayLineNumbers = xsePrefs.ShowLineNumbers
 		  fldCode.BackColor = xsePrefs.BackgroundColor
 		  fldCode.TextColor =  xsePrefs.TextColor
+		  fldCode.CaretColor =  xsePrefs.TextColor
 		  fldCode.GutterBackgroundColor = xsePrefs.GutterBackgroundColor
 		  fldCode.GutterSeparationLineColor = xsePrefs.GutterSeparatorColor
 		  

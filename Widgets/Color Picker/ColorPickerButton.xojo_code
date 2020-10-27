@@ -207,7 +207,11 @@ Inherits Canvas
 		  p.Graphics.ForeColor = InitialColorShown
 		  p.graphics.FillRect 0, 0, dividerX, p.graphics.height
 		  
-		  p.graphics.ForeColor = &cffffff
+		  If IsDarkMode Then
+		    p.graphics.ForeColor = &c16161600
+		  Else
+		    p.graphics.ForeColor = &c16161600
+		  End If
 		  p.graphics.FillRect dividerX, 0 , p.Graphics.Width, p.Graphics.height
 		  
 		  mask.graphics.forecolor = &cFFFFFF
@@ -221,12 +225,21 @@ Inherits Canvas
 		  
 		  p.ApplyMask(mask)
 		  
+		  g.ClearRect 0, 0, g.width, g.height
+		  
 		  g.DrawPicture p,0,0
 		  
 		  If Not Enabled Then
-		    g.ForeColor = &c8D8D8D7f
+		    If IsDarkMode Then
+		    Else
+		      g.ForeColor = &c8D8D8D7f
+		    End If
 		  Else
-		    g.ForeColor = &c8D8D8D00
+		    If IsDarkMode Then
+		      g.ForeColor = &c80808000
+		    Else
+		      g.ForeColor = &c8D8D8D00 
+		    End If
 		  End If
 		  g.DrawRoundRect 0,0, g.width, g.height,9,9
 		  g.DrawLine dividerX, 0, dividerX, p.graphics.height
@@ -242,10 +255,18 @@ Inherits Canvas
 		      Dim hilightCircleX As Integer = dividerX-3-hilightcircleSize
 		      Dim hilightCircleY As Integer = g.height/2 - hilightcircleSize/2
 		      
-		      g.ForeColor = &c8D8D8DBF
+		      If IsDarkMode Then
+		        g.ForeColor = &c8D8D8DBF
+		      Else
+		        g.ForeColor = &c8D8D8DBF
+		      End If
 		      g.FillOval hilightCircleX, hilightCircleY, hilightcircleSize, hilightcircleSize
 		      
-		      g.forecolor = &cFFFFFF
+		      If IsDarkMode Then
+		        g.ForeColor = &cFFFFFF
+		      Else
+		        g.forecolor = &cFFFFFF
+		      End If
 		      g.drawLine hilightCircleX+2, hilightCircleY+5, hilightCircleX+6, hilightCircleY+10
 		      g.drawLine hilightCircleX+6, hilightCircleY+10, hilightCircleX+10, hilightCircleY+5
 		      
